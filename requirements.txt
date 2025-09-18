@@ -1,0 +1,39 @@
+# GluonTS Probabilistic Forecasting - Professional Time Series Project 2025
+# Core GluonTS framework
+gluonts[arrow,pro]>=0.14.0
+mxnet>=1.9.0
+
+# Dashboard and visualization
+streamlit>=1.39.0
+plotly>=5.24.0
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Deep learning backends
+torch>=2.0.0
+pytorch-lightning>=2.0.0
+
+# Probabilistic modeling
+pyro-ppl>=1.8.0
+numpyro>=0.13.0
+tensorflow-probability>=0.22.0
+
+# Statistical distributions
+scipy>=1.14.0
+statsmodels>=0.14.0
+
+# Optimization
+optuna>=3.6.0
+ray[tune]>=2.9.0
+
+# Data processing
+pyarrow>=15.0.0
+datasets>=2.16.0
+
+# Model evaluation
+mlflow>=2.11.0
+wandb>=0.16.0
+
+# Utilities
+tqdm>=4.66.0
+python-dotenv>=1.0.0
