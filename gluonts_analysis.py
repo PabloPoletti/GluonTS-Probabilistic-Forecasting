@@ -30,6 +30,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 
 # GluonTS imports
+GLUONTS_AVAILABLE = False
 try:
     from gluonts.dataset.common import ListDataset, DataEntry
     from gluonts.dataset.field_names import FieldName
@@ -52,9 +53,20 @@ try:
         DayOfYear, MonthOfYear, WeekOfYear
     )
     import gluonts
+    GLUONTS_AVAILABLE = True
 except ImportError as e:
     print(f"Warning: GluonTS not installed: {e}")
     print("Install with: pip install gluonts[mxnet,pro]")
+    # Create dummy classes
+    class FieldName:
+        TARGET = "target"
+        START = "start"
+    class ListDataset:
+        pass
+    class Trainer:
+        pass
+    class GroupNormalizer:
+        pass
 
 warnings.filterwarnings('ignore')
 
@@ -213,7 +225,11 @@ class GluonTSProbabilisticAnalysis:
     
     def convert_to_gluonts_format(self):
         """Convert datasets to GluonTS format"""
-        print("\n🔄 Converting datasets to GluonTS format...")
+        print("\n🔄 Converting datasets to Gluonts format...")
+        
+        if not GLUONTS_AVAILABLE:
+            print("⚠️ GluonTS not available. Skipping format conversion.")
+            return
         
         for name, df in self.datasets.items():
             try:
@@ -368,6 +384,10 @@ class GluonTSProbabilisticAnalysis:
     def create_probabilistic_models(self, prediction_length: int = 30) -> Dict[str, object]:
         """Create GluonTS probabilistic models"""
         print(f"\n🧠 Creating probabilistic models (horizon: {prediction_length})...")
+        
+        if not GLUONTS_AVAILABLE:
+            print("⚠️ GluonTS not available. Skipping model creation.")
+            return {}
         
         # Trainer configuration
         trainer = Trainer(
@@ -929,7 +949,7 @@ class GluonTSProbabilisticAnalysis:
 *Author: Pablo Poletti | GitHub: https://github.com/PabloPoletti*
         """
         
-        with open('gluonts_probabilistic_report.md', 'w') as f:
+        with open('gluonts_probabilistic_report.md', 'w', encoding='utf-8') as f:
             f.write(report)
         
         # Save detailed metrics
