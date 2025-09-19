@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# PyTorch
+*.pt
+*.pth
+checkpoints/
+lightning_logs/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Streamlit
+.streamlit/
+
+# Data
+*.csv
+*.xlsx
+*.json
+data/
+
+# Models
+models/
+*.pkl
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
