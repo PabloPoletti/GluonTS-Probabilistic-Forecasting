@@ -25,10 +25,18 @@ Professional probabilistic time series forecasting using Amazon's GluonTS framew
 
 ## 🛠️ Installation & Usage
 
-### Prerequisites
+### ⚠️ Required Libraries
+**This project specifically requires GluonTS to function properly:**
+
 ```bash
+# Core GluonTS library - REQUIRED
+pip install gluonts[mxnet,pro]
+
+# Or install all requirements
 pip install -r requirements.txt
 ```
+
+**Note:** Without GluonTS, the probabilistic forecasting analysis cannot proceed. The project will exit with clear installation instructions if dependencies are missing.
 
 ### Run Analysis
 ```bash
