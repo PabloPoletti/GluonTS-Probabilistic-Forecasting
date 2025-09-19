@@ -29,8 +29,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 
-# GluonTS imports
-GLUONTS_AVAILABLE = False
+# GluonTS imports - REQUIRED for this analysis
 try:
     from gluonts.dataset.common import ListDataset, DataEntry
     from gluonts.dataset.field_names import FieldName
@@ -53,20 +52,14 @@ try:
         DayOfYear, MonthOfYear, WeekOfYear
     )
     import gluonts
-    GLUONTS_AVAILABLE = True
 except ImportError as e:
-    print(f"Warning: GluonTS not installed: {e}")
-    print("Install with: pip install gluonts[mxnet,pro]")
-    # Create dummy classes
-    class FieldName:
-        TARGET = "target"
-        START = "start"
-    class ListDataset:
-        pass
-    class Trainer:
-        pass
-    class GroupNormalizer:
-        pass
+    print("❌ CRITICAL ERROR: GluonTS library not installed!")
+    print(f"Missing: {e}")
+    print("\n🔧 INSTALLATION REQUIRED:")
+    print("pip install gluonts[mxnet,pro]")
+    print("\n📖 This project specifically demonstrates GluonTS probabilistic forecasting capabilities.")
+    print("Without GluonTS, the analysis cannot proceed.")
+    exit(1)
 
 warnings.filterwarnings('ignore')
 

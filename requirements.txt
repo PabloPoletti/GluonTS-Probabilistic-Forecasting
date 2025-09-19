@@ -1,5 +1,10 @@
-# GluonTS Probabilistic Forecasting - Professional Time Series Analysis
-# Core requirements (basic analysis without GluonTS)
+# GluonTS Probabilistic Forecasting - REQUIRED LIBRARIES
+# This project specifically demonstrates GluonTS probabilistic capabilities
+
+# Core GluonTS library - REQUIRED
+gluonts[mxnet,pro]>=0.15.0
+
+# Supporting libraries
 pandas>=2.2.0
 numpy>=1.26.0
 matplotlib>=3.5.0
@@ -9,14 +14,9 @@ yfinance>=0.2.32
 scikit-learn>=1.5.0
 scipy>=1.14.0
 optuna>=3.6.0
-requests>=2.31.0
-tqdm>=4.66.0
+mxnet>=1.9.1
+pyro-ppl>=1.9.0
+numpyro>=0.14.0
 
-# Optional GluonTS requirements (install manually if needed)
-# For full GluonTS functionality, install:
-# pip install gluonts[mxnet,pro]
-#
-# gluonts>=0.15.0
-# mxnet>=1.9.1
-# pyro-ppl>=1.9.0
-# numpyro>=0.14.0
+# Note: This project requires GluonTS to function properly.
+# Without GluonTS, the probabilistic forecasting analysis cannot proceed.
